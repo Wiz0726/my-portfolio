@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adarsh — Data Analyst</title>
+<meta name="description" content="Adarsh — Data Analyst in Sydney. CRM data, migration data quality, Power BI reporting. SQL · Python · Power BI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF8;
+    --panel:#FFFFFF;
+    --ink:#15181E;
+    --ink-2:#4A5160;
+    --ink-3:#8A91A0;
+    --line:#E6E7E3;
+    --blue:#1D49C9;
+    --blue-soft:#EEF1FB;
+    --teal:#0C7C66;
+    --teal-soft:#E9F4F0;
+    --amber:#9A6700;
+    --amber-soft:#FCF3E3;
+    --radius:12px;
+    --maxw:980px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--blue);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Sora',sans-serif;font-weight:600;font-size:16.5px;color:var(--ink);text-decoration:none}
+  .logo span{color:var(--blue)}
+  .nav-links{display:flex;gap:24px}
+  .nav-links a{color:var(--ink-2);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+
+  /* hero */
+  header{padding:92px 0 64px}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--blue);margin-bottom:20px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .kicker::before{content:"";width:22px;height:1px;background:var(--blue)}
+  h1{
+    font-family:'Sora',sans-serif;font-weight:600;
+    font-size:clamp(2.2rem,5.4vw,3.4rem);line-height:1.12;letter-spacing:-.02em;
+    max-width:760px;
+  }
+  h1 em{font-style:normal;color:var(--blue)}
+  .lede{margin-top:20px;max-width:640px;color:var(--ink-2);font-size:17.5px}
+  .lede strong{color:var(--ink);font-weight:600}
+  .hero-ctas{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Sora',sans-serif;font-weight:500;font-size:14.5px;
+    padding:11px 20px;border-radius:9px;text-decoration:none;
+    transition:transform .18s,box-shadow .18s,background .18s;
+  }
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(29,73,201,.22)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink);background:var(--panel)}
+  .btn-ghost:hover{border-color:#cfd2cb;transform:translateY(-1px)}
+  .proof{
+    margin-top:42px;display:flex;gap:10px 26px;flex-wrap:wrap;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-3);
+  }
+  .proof span b{color:var(--ink);font-weight:600}
+
+  /* capability strip */
+  .caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding-bottom:8px}
+  .cap{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;transition:box-shadow .2s,transform .2s;
+  }
+  .cap:hover{box-shadow:0 8px 26px rgba(21,24,30,.06);transform:translateY(-2px)}
+  .cap .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;font-weight:500;display:inline-block;margin-bottom:12px;
+    padding:4px 10px;border-radius:6px;
+  }
+  .cap:nth-child(1) .tag{color:var(--blue);background:var(--blue-soft)}
+  .cap:nth-child(2) .tag{color:var(--teal);background:var(--teal-soft)}
+  .cap:nth-child(3) .tag{color:var(--amber);background:var(--amber-soft)}
+  .cap h3{font-family:'Sora',sans-serif;font-size:16.5px;font-weight:600;margin-bottom:8px}
+  .cap p{font-size:14.5px;color:var(--ink-2)}
+
+  /* sections */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:38px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  h2{font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(1.4rem,2.8vw,1.75rem);letter-spacing:-.015em}
+  .sec-note{font-size:14px;color:var(--ink-3)}
+
+  /* experience */
+  .job{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 30px;margin-bottom:16px;transition:box-shadow .2s;
+  }
+  .job:hover{box-shadow:0 8px 26px rgba(21,24,30,.05)}
+  .job-top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 16px}
+  .job h3{font-family:'Sora',sans-serif;font-size:17.5px;font-weight:600}
+  .job .org{color:var(--blue)}
+  .job .when{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-3)}
+  .scope{
+    margin-top:10px;font-size:14px;color:var(--ink-2);
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;
+    padding:9px 14px;display:inline-block;
+  }
+  .scope b{color:var(--ink);font-weight:600}
+  .job .story{font-size:15px;color:var(--ink-2);margin-top:12px;max-width:720px;font-style:italic}
+  .job ul{margin:16px 0 0;padding:0;list-style:none}
+  .job li{
+    font-size:15px;color:var(--ink-2);line-height:1.62;
+    padding-left:20px;position:relative;margin-bottom:10px;max-width:720px;
+  }
+  .job li::before{
+    content:"";position:absolute;left:0;top:11px;width:8px;height:2px;background:var(--blue);
+  }
+  .job li b{color:var(--ink);font-weight:600}
+  .award{
+    display:inline-flex;align-items:center;gap:7px;margin-top:8px;
+    font-size:13.5px;font-weight:500;color:var(--amber);background:var(--amber-soft);
+    border:1px solid #EAD9B0;padding:5px 13px;border-radius:8px;
+  }
+
+  /* projects */
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .proj{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;display:flex;flex-direction:column;gap:11px;transition:box-shadow .2s,transform .2s;
+  }
+  .proj:hover{box-shadow:0 8px 26px rgba(21,24,30,.06);transform:translateY(-2px)}
+  .status{
+    display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--teal);font-weight:500;
+  }
+  .status .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .proj h3{font-family:'Sora',sans-serif;font-size:16.5px;font-weight:600;line-height:1.35}
+  .proj p{color:var(--ink-2);font-size:14.5px;flex:1}
+  .proj .stack{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-3)}
+  a.proj{color:inherit;text-decoration:none;cursor:pointer}
+  .proj .more{font-size:13.5px;font-weight:500;color:var(--blue);margin-top:2px}
+
+  /* project detail pages */
+  #project-detail{display:none;padding:64px 0 80px}
+  #project-detail article{display:none;max-width:760px}
+  .back-link{
+    display:flex;width:fit-content;align-items:center;gap:7px;font-size:14px;font-weight:500;
+    color:var(--ink-2);text-decoration:none;margin-bottom:26px;
+  }
+  .back-link:hover{color:var(--blue)}
+  .detail-kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--teal);font-weight:500;display:flex;width:fit-content;align-items:center;gap:8px;margin-bottom:14px;
+  }
+  .detail-kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 2.4s ease-in-out infinite}
+  #project-detail h1{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:10px}
+  .detail-stack{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-3);margin-bottom:30px}
+  #project-detail h2{font-size:1.15rem;margin:30px 0 10px}
+  #project-detail p,#project-detail li{font-size:15.5px;color:var(--ink-2);line-height:1.7}
+  #project-detail ul{margin:8px 0 0;padding-left:0;list-style:none}
+  #project-detail li{padding-left:20px;position:relative;margin-bottom:8px}
+  #project-detail li::before{content:"";position:absolute;left:0;top:12px;width:8px;height:2px;background:var(--blue)}
+  .shot{
+    margin:30px 0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--panel);
+  }
+  .shot img{display:block;width:100%}
+  .shot-placeholder{
+    padding:56px 24px;text-align:center;background:
+      repeating-linear-gradient(45deg,var(--panel),var(--panel) 12px,#F4F5F1 12px,#F4F5F1 24px);
+  }
+  .shot-placeholder span{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink-3);
+    background:var(--panel);border:1px solid var(--line);padding:7px 14px;border-radius:8px;
+  }
+  .detail-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+  .btn-disabled{
+    border:1px dashed var(--line);color:var(--ink-3);background:var(--paper);cursor:default;
+  }
+
+  /* certs + education */
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px}
+  .card h3{font-family:'Sora',sans-serif;font-size:15.5px;font-weight:600;line-height:1.4}
+  .card .sub{font-size:13.5px;color:var(--ink-3);margin-top:4px;font-family:'IBM Plex Mono',monospace}
+  .card p{font-size:14px;color:var(--ink-2);margin-top:8px}
+  .cert-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+  .cert{
+    display:flex;gap:13px;align-items:flex-start;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:17px 19px;
+  }
+  .cert .mark{
+    flex-shrink:0;width:36px;height:36px;border-radius:9px;background:#fff;
+    border:1px solid var(--line);
+    display:grid;place-items:center;
+  }
+  .cert .mark img,.cert .mark svg{width:21px;height:21px;display:block}
+  .cert h3{font-size:14.5px;font-weight:600;line-height:1.35}
+  .cert .by{font-size:12.5px;color:var(--ink-3);margin-top:2px;font-family:'IBM Plex Mono',monospace}
+
+  /* contact */
+  .contact{text-align:center;padding:88px 0}
+  .contact h2{font-size:clamp(1.7rem,3.6vw,2.3rem)}
+  .contact p{color:var(--ink-2);max-width:480px;margin:14px auto 30px}
+  footer{
+    border-top:1px solid var(--line);padding:24px 0;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-3);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+  footer a{color:var(--ink-2);text-decoration:none}
+  footer a:hover{color:var(--blue)}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    header{padding:64px 0 48px}
+    section{padding:50px 0}
+    .job{padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#top">adarsh<span>.</span></a>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <header>
+    <div class="kicker">Data Analyst · Sydney, Australia</div>
+    <h1>Adarsh — I keep enterprise data <em>accurate, reconciled, and decision-ready</em>.</h1>
+    <p class="lede">
+      Three years across CRM systems, a <strong>migration covering 500K+ records and 30K+ users</strong>, and
+      <strong>Power BI reporting</strong> — currently at Central Innovation, previously Deloitte. I do the unglamorous
+      work that makes numbers trustworthy: extraction, validation, reconciliation, and the data layer dashboards are built on.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" id="resume-dl" href="#" download="Adarsh_Resume.docx">Download resume</a>
+      <a class="btn btn-ghost" href="mailto:26asingh04@gmail.com">26asingh04@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/adarsh2604/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="proof">
+      <span><b>500K+ records</b> migration scope</span>
+      <span><b>SQL · Power BI · Python</b> core toolkit</span>
+      <span><b>Master of IT</b> — UTS, Sydney</span>
+      <span><b>Ex-Deloitte</b> — Spot Award</span>
+    </div>
+  </header>
+
+  <div class="caps">
+    <div class="cap reveal">
+      <span class="tag">Migration &amp; data quality</span>
+      <h3>Data that survives a migration</h3>
+      <p>Mapping, validation, reconciliation, and integrity checks on a live enterprise CRM migration — 500K+ records, 30K+ users — the discipline of proving data arrived correctly.</p>
+    </div>
+    <div class="cap reveal">
+      <span class="tag">Reporting &amp; dashboards</span>
+      <h3>Numbers people act on</h3>
+      <p>SQL-shaped CRM and operational data behind Power BI dashboards — built for the questions managers actually ask, not for chart variety.</p>
+    </div>
+    <div class="cap reveal">
+      <span class="tag">Requirements &amp; UAT</span>
+      <h3>Business and IT, translated</h3>
+      <p>Requirements gathering, UAT validation, and documentation that holds up in audits — the bridge work between stakeholders and systems.</p>
+    </div>
+  </div>
+
+  <section id="experience">
+    <div class="sec-head reveal">
+      <h2>Experience</h2>
+      <span class="sec-note">Support-titled roles. Analyst-shaped work.</span>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-top">
+        <h3>IT Support Officer &amp; Database Administrator · <span class="org">Central Innovation</span></h3>
+        <span class="when">Jul 2025 — Present · Sydney · Permanent Full-Time</span>
+      </div>
+      <div class="scope"><b>Scope:</b> CRM data &amp; reporting · company-wide business migration · UAT &amp; process documentation</div>
+      <p class="story">I sit where business operations meet IT systems — the person who makes sure the data a business runs on can actually be trusted, especially while everything is being moved.</p>
+      <ul>
+        <li><b>Support the data workstream of a CRM migration covering 500K+ records</b> (~220K customer accounts, ~300K contacts) — mapping, validation, reconciliation, and migration of 30K+ users, protecting data integrity from extraction through cutover.</li>
+        <li><b>Build the data layer behind CRM reporting:</b> extract, transform, and validate customer, user, and sales data with SQL, feeding Power BI reporting and the decisions the migration depends on.</li>
+        <li><b>Turn a ~600-ticket active service queue into insight</b> — SLA performance and trend analysis that feeds directly into process-improvement decisions, not just monthly slide-filler.</li>
+        <li><b>Act as the translator between business users and IT teams</b> — gathering, analysing, and converting system and access requirements into language both sides can act on.</li>
+        <li><b>Validate what the business actually gets:</b> support User Acceptance Testing by checking system functionality and data outputs against the requirements, before go-live rather than after.</li>
+        <li><b>Write the documentation that survives audits</b> — business processes, data workflows, and system procedures that keep operations running when the person who built them isn't in the room.</li>
+      </ul>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-top">
+        <h3>IT Support Engineer · <span class="org">CyberGeek</span></h3>
+        <span class="when">Jan 2024 — Jun 2025 · Sydney · Contract (1 yr + 6-mo extension)</span>
+      </div>
+      <div class="scope"><b>Scope:</b> operational data analysis · Power BI reporting · stakeholder delivery</div>
+      <p class="story">A contract role that became a longer one — extended six months on client request — built around turning operational noise into reporting people actually used.</p>
+      <ul>
+        <li><b>Developed and maintained Power BI dashboards and reports</b> that translated operational data into insight used for performance reviews and business decisions.</li>
+        <li><b>Analysed system and network performance data</b> to surface trends and recommend improvements that supported service continuity.</li>
+        <li><b>Extracted and analysed operational data</b> to support reporting, performance reviews, and continuous improvement across the business.</li>
+        <li><b>Worked directly with stakeholders</b> to understand what they needed — then delivered data-informed solutions instead of assumptions.</li>
+        <li><b>Kept technical and process documentation audit-ready,</b> supporting compliance reviews and a clean knowledge transfer at contract end.</li>
+      </ul>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-top">
+        <h3>IT Helpdesk Analyst · <span class="org">Harbour Net IT</span></h3>
+        <span class="when">Jan 2023 — Dec 2023 · Sydney · Contract (1 yr)</span>
+      </div>
+      <div class="scope"><b>Scope:</b> systems analysis · access &amp; compliance · vendor escalation</div>
+      <p class="story">The year I learned to diagnose properly — where the discipline of root-cause analysis, rather than symptom-patching, became a habit.</p>
+      <ul>
+        <li><b>Investigated and resolved system and network issues</b> affecting business operations and user productivity — root-cause analysis, not just ticket-closing.</li>
+        <li><b>Managed user access, permissions, and group policies,</b> keeping the environment compliant and data secure.</li>
+        <li><b>Supported system configuration and deployment</b> aligned with operational and user requirements.</li>
+        <li><b>Partnered with internal teams and vendors</b> to untangle the complex, multi-party technical issues nobody could solve alone.</li>
+      </ul>
+    </div>
+
+    <div class="job reveal">
+      <div class="job-top">
+        <h3>Associate Analyst · <span class="org">Deloitte USI</span></h3>
+        <span class="when">Jun 2021 — Mar 2022 · Remote (EMEA &amp; APAC clients) · Permanent Full-Time</span>
+      </div>
+      <div class="scope"><b>Scope:</b> ServiceNow business analysis · UAT coordination · Agile delivery</div>
+      <p class="story">Where my career started: enterprise-grade business analysis on ServiceNow projects, learning how global delivery actually works — sprint by sprint, SLA by SLA.</p>
+      <ul>
+        <li><b>Supported 3 global enterprise clients (MNCs) across EMEA and APAC</b> — handling ~20 incidents per week (700+ total) with consistent SLA adherence.</li>
+        <li><b>Translated business requirements into 5 ServiceNow workflow configurations</b> — business rules, UI scripts, and workflows — validated against real business processes.</li>
+        <li><b>Coordinated UAT and QA across nearly every release cycle,</b> ensuring release readiness for incident, problem, and request workflows.</li>
+        <li><b>Analysed service performance data and prioritised incidents by business impact,</b> improving resolution efficiency and user satisfaction.</li>
+        <li><b>Worked in full Agile delivery</b> — daily stand-ups, sprint planning, and cross-functional collaboration with stakeholders and development teams.</li>
+      </ul>
+      <div class="award">★ Spot Award — project delivery &amp; process improvement</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head reveal">
+      <h2>Projects</h2>
+      <span class="sec-note">In active development — each answers a business question, not a tool demo.</span>
+    </div>
+    <div class="proj-grid">
+      <a class="proj reveal" href="#project-sales-dashboard">
+        <span class="status"><span class="dot"></span>In development</span>
+        <h3>Sales Performance Dashboard</h3>
+        <p>SQL-shaped retail data behind a Power BI dashboard answering where revenue is won, lost, and trending — built for a manager's Monday morning.</p>
+        <span class="stack">SQL · Power BI · DAX</span>
+        <span class="more">View project →</span>
+      </a>
+      <a class="proj reveal" href="#project-python-eda">
+        <span class="status"><span class="dot"></span>In development</span>
+        <h3>Exploratory Data Analysis in Python</h3>
+        <p>A documented Pandas investigation — cleaning decisions explained, patterns surfaced, and an honest conclusion about what the data can and can't say.</p>
+        <span class="stack">Python · Pandas · Jupyter</span>
+        <span class="more">View project →</span>
+      </a>
+      <a class="proj reveal" href="#project-migration-validation">
+        <span class="status"><span class="dot"></span>In development</span>
+        <h3>Data Migration Validation Toolkit</h3>
+        <p>A simulated migration with deliberate faults — and the SQL + Python reconciliation suite that catches them: row counts, duplicates, integrity, value-level checks. Built from real migration experience.</p>
+        <span class="stack">SQL · Python · Data Quality</span>
+        <span class="more">View project →</span>
+      </a>
+    </div>
+  </section>
+
+  <div id="project-detail">
+
+    <article id="project-sales-dashboard">
+      <a class="back-link" href="#projects">← Back to all projects</a>
+      <div class="detail-kicker"><span class="dot"></span>In development</div>
+      <h1>Sales Performance Dashboard</h1>
+      <div class="detail-stack">SQL · Power BI · DAX</div>
+
+      <h2>The question</h2>
+      <p>A retail manager opens one screen on Monday morning and needs to know: where is revenue won, where is it lost, and what needs attention this week? This dashboard answers exactly that — no chart variety for its own sake.</p>
+
+      <h2>The approach</h2>
+      <ul>
+        <li>Shape raw retail transaction data with SQL — aggregations, time-windowed comparisons, and top-N rankings, with every query documented in a commented <code>analysis.sql</code>.</li>
+        <li>Model the result in Power BI with DAX measures (not calculated columns) for revenue, profit, and order KPIs.</li>
+        <li>One disciplined layout: a KPI row, a revenue trend line, a category comparison, and a drill-down detail table.</li>
+      </ul>
+
+      <h2>What it will show</h2>
+      <p>Which product categories drive and drag revenue, regional and segment profitability, seasonality patterns, and the outliers worth investigating — each visual mapped to one of the business questions defined before any chart was built.</p>
+
+      <!-- WHEN SHIPPED: replace the placeholder below with  <img src="screenshot.png" alt="Dashboard screenshot">  -->
+      <div class="shot"><div class="shot-placeholder"><span>Dashboard screenshot — ships with v1</span></div></div>
+
+      <div class="detail-ctas">
+        <!-- WHEN SHIPPED: change to  <a class="btn btn-primary" href="https://github.com/YOUR-REPO" target="_blank" rel="noopener">View on GitHub</a>  -->
+        <span class="btn btn-disabled">GitHub repository — ships with v1</span>
+        <a class="btn btn-ghost" href="#projects">All projects</a>
+      </div>
+    </article>
+
+    <article id="project-python-eda">
+      <a class="back-link" href="#projects">← Back to all projects</a>
+      <div class="detail-kicker"><span class="dot"></span>In development</div>
+      <h1>Exploratory Data Analysis in Python</h1>
+      <div class="detail-stack">Python · Pandas · Jupyter</div>
+
+      <h2>The question</h2>
+      <p>Given a real-world dataset, what actually drives the outcome — and just as importantly, what can the data <em>not</em> tell us? This project is an investigation, not a gallery: every chart earns its place by moving the answer forward.</p>
+
+      <h2>The approach</h2>
+      <ul>
+        <li>Profile the raw data first — shape, types, missingness — before touching anything.</li>
+        <li>Clean with documented decisions: every drop, fill, or type fix justified in a markdown cell, because the reasoning is the analyst work.</li>
+        <li>Investigate with groupbys, distributions, and comparisons, building toward a conclusion rather than a pile of plots.</li>
+        <li>Close with an honest conclusion: findings, confidence, and what I'd examine next with more data.</li>
+      </ul>
+
+      <h2>What it will show</h2>
+      <p>A notebook readable as a story even if you skip the code — demonstrating investigation, scepticism, and clear written reasoning beyond what BI tools show.</p>
+
+      <!-- WHEN SHIPPED: replace the placeholder below with  <img src="screenshot.png" alt="Notebook screenshot">  -->
+      <div class="shot"><div class="shot-placeholder"><span>Notebook highlights — ships with v1</span></div></div>
+
+      <div class="detail-ctas">
+        <!-- WHEN SHIPPED: change to  <a class="btn btn-primary" href="https://github.com/YOUR-REPO" target="_blank" rel="noopener">View on GitHub</a>  -->
+        <span class="btn btn-disabled">GitHub repository — ships with v1</span>
+        <a class="btn btn-ghost" href="#projects">All projects</a>
+      </div>
+    </article>
+
+    <article id="project-migration-validation">
+      <a class="back-link" href="#projects">← Back to all projects</a>
+      <div class="detail-kicker"><span class="dot"></span>In development</div>
+      <h1>Data Migration Validation Toolkit</h1>
+      <div class="detail-stack">SQL · Python · Data Quality</div>
+
+      <h2>The question</h2>
+      <p>After a system migration, how do you <em>prove</em> the data arrived correctly? This toolkit simulates a migration gone subtly wrong — and catches every fault. It's built directly from my experience supporting the data workstream of a live CRM migration covering 500K+ records.</p>
+
+      <h2>The approach</h2>
+      <ul>
+        <li>Generate a realistic synthetic source dataset (thousands of customer records via Python + Faker) — no real company data anywhere near this project.</li>
+        <li>Produce a deliberately flawed "migrated" target: dropped rows, duplicates, truncated values, corrupted dates, silent value changes.</li>
+        <li>Build the reconciliation suite that detects each fault class without peeking at the answer key: row-count reconciliation, duplicate detection, referential completeness, format and integrity checks, and value-level source-to-target comparison.</li>
+        <li>Output a validation summary report — the same artifact a real data team produces at cutover.</li>
+      </ul>
+
+      <h2>What it will show</h2>
+      <p>Professional data-quality methodology most junior portfolios never touch: completeness, uniqueness, integrity, and accuracy checks, written up as a reusable validation playbook.</p>
+
+      <!-- WHEN SHIPPED: replace the placeholder below with  <img src="screenshot.png" alt="Validation report screenshot">  -->
+      <div class="shot"><div class="shot-placeholder"><span>Validation report — ships with v1</span></div></div>
+
+      <div class="detail-ctas">
+        <!-- WHEN SHIPPED: change to  <a class="btn btn-primary" href="https://github.com/YOUR-REPO" target="_blank" rel="noopener">View on GitHub</a>  -->
+        <span class="btn btn-disabled">GitHub repository — ships with v1</span>
+        <a class="btn btn-ghost" href="#projects">All projects</a>
+      </div>
+    </article>
+
+  </div>
+
+  <section id="certifications">
+    <div class="sec-head reveal">
+      <h2>Certifications</h2>
+    </div>
+    <div class="cert-list">
+      <div class="cert reveal">
+        <div class="mark" style="background:#05192D;border-color:#05192D">
+          <svg viewBox="0 0 24 24" aria-label="DataCamp" role="img"><path fill="#03EF62" d="M12.946 18.151v-5.239L21.209 8.2 19.2 7.048l-6.254 3.567V5.36c0-.356-.192-.689-.5-.866L4.922.177a1.434 1.434 0 0 0-1.455.044 1.438 1.438 0 0 0-.676 1.224v14.777A1.44 1.44 0 0 0 4.92 17.49l6.032-3.44v4.683a1 1 0 0 0 .504.867l7.73 4.4 2.01-1.152-8.25-4.697zM10.953 5.938v5.814L4.785 15.27V2.4l6.168 3.539v-.001z"/></svg>
+        </div>
+        <div><h3>Data Analyst Associate</h3><div class="by">DataCamp · 2025–2027</div></div>
+      </div>
+      <div class="cert reveal">
+        <div class="mark">
+          <svg viewBox="0 0 48 48" aria-label="Google" role="img"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        </div>
+        <div><h3>Google Data Analytics Certificate</h3><div class="by">Google · in progress</div></div>
+      </div>
+      <div class="cert reveal">
+        <div class="mark">
+          <svg viewBox="0 0 16 16" aria-label="Meta" role="img"><path fill="#0081FB" fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a54.944 54.944 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3c.319 0 .625.039.924.122.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714Zm1.516 2.224c-.252-.41-.494-.787-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87l-.937-1.565ZM4.846 4.756c.725.1 1.385.634 2.34 2.001A212.13 212.13 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264.091 0 .181.006.27.018Z"/></svg>
+        </div>
+        <div><h3>Introduction to Databases</h3><div class="by">Meta · 2024</div></div>
+      </div>
+      <div class="cert reveal">
+        <div class="mark">
+          <svg viewBox="0 0 16 16" aria-label="Meta" role="img"><path fill="#0081FB" fill-rule="evenodd" d="M8.217 5.243C9.145 3.988 10.171 3 11.483 3 13.96 3 16 6.153 16.001 9.907c0 2.29-.986 3.725-2.757 3.725-1.543 0-2.395-.866-3.924-3.424l-.667-1.123-.118-.197a54.944 54.944 0 0 0-.53-.877l-1.178 2.08c-1.673 2.925-2.615 3.541-3.923 3.541C1.086 13.632 0 12.217 0 9.973 0 6.388 1.995 3 4.598 3c.319 0 .625.039.924.122.31.086.611.22.913.407.577.359 1.154.915 1.782 1.714Zm1.516 2.224c-.252-.41-.494-.787-.727-1.133L9 6.326c.845-1.305 1.543-1.954 2.372-1.954 1.723 0 3.102 2.537 3.102 5.653 0 1.188-.39 1.877-1.195 1.877-.773 0-1.142-.51-2.61-2.87l-.937-1.565ZM4.846 4.756c.725.1 1.385.634 2.34 2.001A212.13 212.13 0 0 0 5.551 9.3c-1.357 2.126-1.826 2.603-2.581 2.603-.777 0-1.24-.682-1.24-1.9 0-2.602 1.298-5.264 2.846-5.264.091 0 .181.006.27.018Z"/></svg>
+        </div>
+        <div><h3>Version Control</h3><div class="by">Meta · 2024</div></div>
+      </div>
+      <div class="cert reveal">
+        <div class="mark">
+          <svg viewBox="0 0 23 23" aria-label="Microsoft" role="img"><rect x="0" y="0" width="11" height="11" fill="#F25022"/><rect x="12" y="0" width="11" height="11" fill="#7FBA00"/><rect x="0" y="12" width="11" height="11" fill="#00A4EF"/><rect x="12" y="12" width="11" height="11" fill="#FFB900"/></svg>
+        </div>
+        <div><h3>Career Essentials in Generative AI</h3><div class="by">Microsoft &amp; LinkedIn · 2025</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head reveal">
+      <h2>Education</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card reveal">
+        <h3>Master of Information Technology — Business Information Systems</h3>
+        <div class="sub">University of Technology Sydney · Feb 2022 — Dec 2023</div>
+        <p>Business Intelligence · Fundamentals of Data Analytics · Advanced Database · Enterprise Architecture</p>
+      </div>
+      <div class="card reveal">
+        <h3>Bachelor of Computer Applications</h3>
+        <div class="sub">Graphic Era University, India · Aug 2018 — Jun 2021</div>
+        <p>Database Management Systems · Data Warehousing &amp; Mining · Data Structures</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="reveal">
+      <h2>Let's talk data.</h2>
+      <p>Open to Data Analyst and Business Analyst roles in Sydney — fintech, consulting, government, and enterprise technology.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-primary" href="mailto:26asingh04@gmail.com">26asingh04@gmail.com</a>
+        <a class="btn btn-ghost" href="tel:+61405499452">0405 499 452</a>
+        <a class="btn btn-ghost" href="#" id="resume-dl-2" download="Adarsh_Resume.docx">Download resume</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Adarsh</span>
+    <span>
+      <a href="https://www.linkedin.com/in/adarsh2604/" target="_blank" rel="noopener">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:26asingh04@gmail.com">Email</a>
+      &nbsp;·&nbsp;
+      <a href="tel:+61405499452">0405 499 452</a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+  const RESUME_B64 = "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";
+  const resumeHref = "data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64," + RESUME_B64;
+  ["resume-dl","resume-dl-2"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.href = resumeHref;
+  });
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // project detail router
+  const detailWrap = document.getElementById('project-detail');
+  const mainBlocks = document.querySelectorAll('.wrap > header, .wrap > .caps, .wrap > section');
+  const articles = detailWrap.querySelectorAll('article');
+  function route(){
+    const h = location.hash;
+    const target = h.startsWith('#project-') ? document.getElementById(h.slice(1)) : null;
+    if (target){
+      mainBlocks.forEach(el => el.style.display = 'none');
+      detailWrap.style.display = 'block';
+      articles.forEach(a => a.style.display = (a === target ? 'block' : 'none'));
+      window.scrollTo(0, 0);
+    } else {
+      detailWrap.style.display = 'none';
+      mainBlocks.forEach(el => el.style.display = '');
+      if (h){
+        const sec = document.querySelector(h);
+        if (sec) sec.scrollIntoView();
+      }
+    }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+</script>
+</body>
+</html>
